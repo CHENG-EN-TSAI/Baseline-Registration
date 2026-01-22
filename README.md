@@ -10,8 +10,8 @@ This repository provides an implementation of **ANTs-affine**, **ANTs-SyN**, **S
 ## Repository Structure
 ```text
 .
-├─
-├─
+├─ ants_reg.py
+├─ sitk_reg.py
 └─ test_data
 ```
 
@@ -34,7 +34,7 @@ This repository provides an implementation of **ANTs-affine**, **ANTs-SyN**, **S
    
 ## Navigate to the project directory
    ```bash
-   cd reg
+   cd Baseline-Registration
    ```
 
 ## Data Preparation
@@ -70,7 +70,20 @@ ln -s /data2/smarted/TMUH/data data
 
 - For reproducibility, set `reproducible = True`
   
-Run :
+Run ANTs-Affine:
+```bash
+python ants_reg.py --method Affine
+```
+
+Run ANTs-SyN:
+```bash
+python ants_reg.py --method SyN
+```
+
+Run SITK-Bspline:
+```bash
+python sitk_reg.py
+```
 
 ## Arguments
 ```text
