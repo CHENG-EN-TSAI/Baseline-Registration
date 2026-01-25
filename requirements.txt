@@ -1,0 +1,7 @@
+numpy
+matplotlib
+scikit-image
+SimpleITK
+Pillow
+antspyx
+pandas
