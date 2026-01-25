@@ -51,61 +51,70 @@ cd Baseline-Registration
 
 ## Data Preparation
 
-`--data_paths_json` must point to a JSON file containing a **list of dictionaries**.  
+`--data_paths_json` must point to a JSON file containing a **list of dictionaries**.
 Each dictionary specifies one registration pair.
 
 **Required fields**
 - `fixed`: path to the fixed image
 - `moving`: path to the moving image
 
+**Optional fields**
+- `fixed_seg`: path to the fixed image segmentation (binary mask)
+- `moving_seg`: path to the moving image segmentation (binary mask)
+- `fixed_pixel_spacing`: pixel spacing of the fixed image `[sx_f, sy_f]`
+- `moving_pixel_spacing`: pixel spacing of the moving image `[sx_m, sy_m]`
+
 ### Example JSON format
 
 ```json
 [
   {
-    \"fixed\": \"FIXED_IMAGE_PATH\",
-    \"moving\": \"MOVING_IMAGE_PATH\"
+    "fixed": "FIXED_IMAGE_PATH",
+    "fixed_seg": "FIXED_SEG_PATH",
+    "fixed_pixel_spacing": [sx_f, sy_f],
+    "moving": "MOVING_IMAGE_PATH",
+    "moving_seg": "MOVING_SEG_PATH",
+    "moving_pixel_spacing": [sx_m, sy_m]
   }
 ]
 ```
 
 A sample JSON file is provided in `test_data/` for testing purposes.
 
-For **Medalab members**, create a symbolic link to the full NIH ChestX-ray8 dataset as follows.  
-The corresponding JSON file is located in this directory:
-
+For **Medalab members**, create a symbolic link to the full NIH ChestX-ray8 dataset as follows. The corresponding JSON file is located in this directory:
 ```bash
 ln -s /data2/smarted/TMUH/data data
 ```
-
 **Note:** Please contact me if you need to modify anything in this directory.
 
 ## RUN a Test
 
-### Notes
-- For reproducibility, set `reproducible = True`
-
 Run ANTs-Affine:
 
 ```bash
-python ants_reg.py --method Affine
+python run.py --method Affine
 ```
 
 Run ANTs-SyN:
 
 "```bash
-python ants_reg.py --method SyN
+python run.py --method SyN
 ```"
 
 Run SITK-Bspline:
 
 "```bash
-python sitk_reg.py
+python run.py --method BSpline
 ```"
 
 ## Arguments
-
-text
+```text
+--data_paths_json: dataset JSON  
+--img_size: image resolution
+--method: Affine | SyN | BSpline
+--seed: int or False
+--result_path: output directory
+```
 
 ## Output
 
