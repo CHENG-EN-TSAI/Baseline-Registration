@@ -97,15 +97,15 @@ python run.py --method Affine
 
 Run ANTs-SyN:
 
-"```bash
+```bash
 python run.py --method SyN
-```"
+```
 
 Run SITK-Bspline:
 
-"```bash
+```bash
 python run.py --method BSpline
-```"
+```
 
 ## Arguments
 ```text
