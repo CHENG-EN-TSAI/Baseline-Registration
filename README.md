@@ -3,7 +3,7 @@
 **ANTs/Simple ITK**
 
 This repository provides an implementation of **ANTs-affine**, **ANTs-SyN**, and **SITK-Bspline**.  
-The code targets **same-modality X-ray registration** and supports forward–backward registration with **inverse consistency error (ICE)** evaluation.
+The code targets **2D same-modality X-ray registration** and supports forward–backward registration with **inverse consistency error (ICE)** evaluation.
 
 ## Features
 
@@ -14,38 +14,40 @@ The code targets **same-modality X-ray registration** and supports forward–bac
 
 ## Repository Structure
 
-text
+```text
 .
-├─ ants_reg.py
-├─ sitk_reg.py
+├─ backends.py
+├─ functions.py
+├─ run.py
 └─ test_data
+```
 
 ## Installation
 
 1. Clone the repo
 
-"```bash
+```bash
 git clone https://github.com/CHENG-EN-TSAI/Baseline-Registration.git
-```"
+```
 
 2. Create new conda environment
 
-"```bash
+```bash
 conda create -n reg python==3.9
 conda activate reg
-```"
+```
 
 3. Install required packages
 
-"```bash
+```bash
 pip install -r requirements.txt
-```"
+```
 
 ## Navigate to the project directory
 
-"```bash
+```bash
 cd Baseline-Registration
-```"
+```
 
 ## Data Preparation
 
@@ -58,23 +60,23 @@ Each dictionary specifies one registration pair.
 
 ### Example JSON format
 
-"```json
+```json
 [
   {
     \"fixed\": \"FIXED_IMAGE_PATH\",
     \"moving\": \"MOVING_IMAGE_PATH\"
   }
 ]
-```"
+```
 
 A sample JSON file is provided in `test_data/` for testing purposes.
 
 For **Medalab members**, create a symbolic link to the full NIH ChestX-ray8 dataset as follows.  
 The corresponding JSON file is located in this directory:
 
-"```bash
+```bash
 ln -s /data2/smarted/TMUH/data data
-```"
+```
 
 **Note:** Please contact me if you need to modify anything in this directory.
 
@@ -85,9 +87,9 @@ ln -s /data2/smarted/TMUH/data data
 
 Run ANTs-Affine:
 
-"```bash
+```bash
 python ants_reg.py --method Affine
-```"
+```
 
 Run ANTs-SyN:
 
