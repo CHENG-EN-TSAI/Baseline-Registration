@@ -171,7 +171,7 @@ def main():
                 "SSIM": SSIM_val, "NMI": NMI_val, "ICE": ice_val,
                 "TV_mean": TV_mean, "TV_p95": TV_p95,
                 "DJ_fold%": DJ_fold, "DJ_p95": DJ_p95, "DJ_p5": DJ_p5,
-                "MSE[D_J-c]": MSE_DJ_c, "c": float(c_val)
+                "MSE[D_J-c]": MSE_DJ_c, "c": c_val
             }, f, indent=2)
 
     print_stats("SSIM", SSIM_list)
